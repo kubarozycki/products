@@ -8,3 +8,13 @@ C:\Users\jakub.rozycki\web1\obj\Debug\netcoreapp2.0\web1.AssemblyInfoInputs.cach
 C:\Users\jakub.rozycki\web1\obj\Debug\netcoreapp2.0\web1.AssemblyInfo.cs
 C:\Users\jakub.rozycki\web1\obj\Debug\netcoreapp2.0\web1.dll
 C:\Users\jakub.rozycki\web1\obj\Debug\netcoreapp2.0\web1.pdb
+D:\Repos\products\web1\bin\Debug\netcoreapp2.0\web1.deps.json
+D:\Repos\products\web1\bin\Debug\netcoreapp2.0\web1.runtimeconfig.json
+D:\Repos\products\web1\bin\Debug\netcoreapp2.0\web1.runtimeconfig.dev.json
+D:\Repos\products\web1\bin\Debug\netcoreapp2.0\web1.dll
+D:\Repos\products\web1\bin\Debug\netcoreapp2.0\web1.pdb
+D:\Repos\products\web1\obj\Debug\netcoreapp2.0\web1.csproj.CoreCompileInputs.cache
+D:\Repos\products\web1\obj\Debug\netcoreapp2.0\web1.AssemblyInfoInputs.cache
+D:\Repos\products\web1\obj\Debug\netcoreapp2.0\web1.AssemblyInfo.cs
+D:\Repos\products\web1\obj\Debug\netcoreapp2.0\web1.dll
+D:\Repos\products\web1\obj\Debug\netcoreapp2.0\web1.pdb

@@ -7,10 +7,10 @@ using Newtonsoft.Json;
 
 public class ProductsController:Controller
 {
-    public List<Product> GetAllProducts(string searchedPhrase)
+    public List< Product> GetAllProducts(string searchedPhrase)
     {
         SqlConnection connection=new SqlConnection();
-        connection.ConnectionString="Server=WIN-I8619RLSHP\\SQLEXPRESS;Database=TSQL2012;Trusted_Connection=True;";
+        connection.ConnectionString="Server=WIN-I8619RLSHP\\SQLEXPRdESS;Database=TSQL2012;Trusted_Connection=True;";
         connection.Open();
         SqlCommand command=new SqlCommand();
         
