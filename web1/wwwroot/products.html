@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            
+            $(document).ready(function () {
+               $("#searchButton").click(function(){
+                   $("#productsTable").empty();
+                   let searchPhrase= $("#searchInput").val();
+                   search(searchPhrase);
+               });
+
+               function search(searchVal) {
+                    let tableBody = document.getElementById("productsTable");
+                    let methodArguments={searchedPhrase:searchVal};
+                    
+                    $.get("http://localhost:5000/Products/GetAllProducts",methodArguments,
+                        function (data, status) {
+
+                            for (let i = 0; i < data.length; i++) {
+                                let row = document.createElement("tr"); //tworzymy wiersz
+
+                                let prodIdCell = document.createElement("td");//tworzymy pierwsza komorke
+                                prodIdCell.innerText = data[i].productID;
+                                row.appendChild(prodIdCell);
+
+                                let prodNameCell = document.createElement("td");//tworzymy druga komorke
+                                prodNameCell.innerText = data[i].productName;
+                                row.appendChild(prodNameCell);
+
+
+                                tableBody.appendChild(row); //dorzucamy caly wiersz dla tabeli
+                            }
+                        });
+                }
+            });
+            
+        </script>
+    </head>
+    <body>
+        <input type="text" id="searchInput">
+        <button id="searchButton">Szukaj</button>
+        <table  border=1>
+            <thead>
+                <th>Product ID</th>
+                <th>ProductName</th>
+            </thead>
+            <tbody id=productsTable>
+
+            </tbody>
+        </table>
+        
+    </body>
+</html>
