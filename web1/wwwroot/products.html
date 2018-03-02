@@ -4,16 +4,32 @@
         <script>
             
             $(document).ready(function () {
+                $.get("http://localhost:5000/Category/GetAllCategories",function(data,status){
+                    console.log(data);
+                    let dropdown=document.getElementById("categories");
+                    for(let i=0;i<data.length;i++){
+                        let opt=document.createElement("option");
+                        opt.innerText=data[i].categoryName;
+                        opt.value=data[i].id;
+                        dropdown.appendChild(opt);
+                    }
+                });
+
                $("#searchButton").click(function(){
                    $("#productsTable").empty();
                    let searchPhrase= $("#searchInput").val();
-                   search(searchPhrase);
+                   let selectedCategory=$("#categories").val();
+                   search(searchPhrase,selectedCategory);
                });
 
-               function search(searchVal) {
+               function search(searchVal,categoryid) {
                     let tableBody = document.getElementById("productsTable");
-                    let methodArguments={searchedPhrase:searchVal};
-                    
+                    let methodArguments=
+                    {
+                        searchedPhrase:searchVal,
+                        categoryid:categoryid
+                    };
+                    console.log(methodArguments);
                     $.get("http://localhost:5000/Products/GetAllProducts",methodArguments,
                         function (data, status) {
 
@@ -40,6 +56,7 @@
     <body>
         <input type="text" id="searchInput">
         <button id="searchButton">Szukaj</button>
+        <select id="categories"></select>
         <table  border=1>
             <thead>
                 <th>Product ID</th>
