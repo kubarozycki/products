@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 
 public class ProductsController:Controller
 {
+    [HttpGet]
     public List< Product> GetAllProducts(string searchedPhrase,int categoryid)
     { 
         SqlConnection connection=new SqlConnection();
@@ -31,4 +32,12 @@ public class ProductsController:Controller
         
         return productNames;
     }
+
+    [HttpPost]
+    public Product AddProduct([FromBody] Product product)
+    {
+        
+        return product;
+    } 
+   
 }

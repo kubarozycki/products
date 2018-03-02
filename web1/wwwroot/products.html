@@ -4,6 +4,28 @@
         <script>
             
             $(document).ready(function () {
+                $("#addButton").click(function(){
+                    let productName=$("#productName").val();
+                    let newProduct={
+                    ProductID:123123,
+                    ProductName:'dadsa',
+                    SupplierID:4123,
+                    CategoryID:23123,
+                    UnitPrice:14.00,
+                    Discontinued:false
+                    };
+                    $.ajax({
+                        type: "POST",
+                        url: "http://localhost:5000/Products/AddProduct",
+                        data: JSON.stringify(newProduct),
+                        success: function(data,status){
+                            console.log(data);
+                        },
+                        dataType: "json",
+                        contentType:"application/json; charset=utf-8"
+                    });
+                });
+
                 $.get("http://localhost:5000/Category/GetAllCategories",function(data,status){
                     console.log(data);
                     let dropdown=document.getElementById("categories");
@@ -66,6 +88,11 @@
 
             </tbody>
         </table>
-        
+        <input id="productName">
+        <input id="supplierID">
+        <input id="categoryID">
+        <input id="unitPrice">
+        <input id="discontinued">
+        <button id="addButton">Dodaj</button>
     </body>
 </html>

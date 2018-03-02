@@ -8,6 +8,7 @@ namespace web1.Controllers
 {
     public class CategoryController:Controller
     {
+        
         public List<Category> GetAllCategories()
         {
             SqlConnection connection = new SqlConnection();
