@@ -1,0 +1,30 @@
+@{
+    List<Product> listaTemp=(List<Product>)ViewData["products"];
+    string baseUrl="http://localhost:5000/Products/GetAllProducts?sortBy=";
+}
+<table>
+    <thead>
+        <th><a href=@baseUrl"ProductName">ProductName</a></th>
+        <th><a href=@baseUrl"SupplierID">Supplier ID</a></th>
+        <th>category id</th>
+        <th>unit price</th>
+    </thead>
+    @foreach (Product x in listaTemp)
+    {
+        <tr>
+            <td>
+                @x.ProductName
+            </td>
+            <td>
+                @x.SupplierID
+            </td>
+            <td>
+                @x.CategoryID
+            </td>
+            <td>
+                @x.UnitPrice
+            </td>
+        </tr>
+    }
+</table>
+
