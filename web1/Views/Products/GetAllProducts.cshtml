@@ -1,0 +1,68 @@
+<!-- 
+@using web1.Models;
+@using web1.ViewModels; -->
+@model web1.ViewModels.SearchProductsViewModel;
+@{
+    List<Product> products=Model.Products;
+    int currentPage=Model.Page;
+    bool ascending=Model.Asc;
+    string searchPhrase="";
+}
+@using (Html.BeginForm("GetAllProducts","Products",FormMethod.Get,new {@class="form-inline"})){
+    @Html.TextBoxFor(x=>x.SearchPhrase,new {@class="form-control"})
+    <input type="submit" value="Search" class="btn btn-success"/>
+    @Html.ActionLink("Clear", "GetAllProducts", "Products", null, new { @class = "btn btn-danger" })
+}
+
+<table class="table">
+    <thead>
+        <th>
+            @Html.ActionLink("Products ID","GetAllProducts","Products",new {Page=Model.Page,SortBy=1,Asc=!Model.Asc})
+        </th>
+        <th>
+            @Html.ActionLink("Products name","GetAllProducts","Products",new {Page=Model.Page,SortBy=2,Asc=!Model.Asc})
+        </th>
+        <th>
+            @Html.ActionLink("Supplier","GetAllProducts","Products",new {Page=Model.Page,SortBy=3,Asc=!Model.Asc})
+        </th>
+        <th>
+            @Html.ActionLink("Category","GetAllProducts","Products",new {Page=Model.Page,SortBy=4,Asc=!Model.Asc})
+        </th>
+        <th>
+            @Html.ActionLink("Unit price","GetAllProducts","Products",new {Page=Model.Page,SortBy=5,Asc=!Model.Asc})
+        </th>
+        <th>
+            @Html.ActionLink("Discontinued","GetAllProducts","Products",new {Page=Model.Page,SortBy=6,Asc=!Model.Asc})
+        </th>
+    </thead>
+    @foreach(Product p in products){
+        <tr>
+            <td>@p.ProductID</td>
+            <td>@p.ProductName</td>
+            <td>@p.SupplierID</td>
+            <td>@p.CategoryID</td>
+            <td>@p.UnitPrice</td>
+            <td>
+                    @if (p.Discontinued==true){
+                        <img src='~/icons/true_icon.png' class='img-responsive'>
+                    }
+                    else{
+                        <img src='~/icons/false_icon.png' class='img-responsive'>
+                    }
+                
+            </td>
+        </tr>
+    }
+    <tfoot>
+        <td colspan="3" align=right>
+            @if(Model.Page>0){
+                @Html.ActionLink("Previous Page","GetAllProducts","Products",new {page=currentPage-1,sortBy=1,asc=ascending})
+            }
+        </td>
+        <td colspan="3" align=left>
+            @Html.ActionLink("Next Page","GetAllProducts","Products",new {page=currentPage+1,sortBy=1,asc=ascending})
+        </td>
+    </tfoot>
+</table>
+
+

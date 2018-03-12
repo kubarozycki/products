@@ -1,0 +1,28 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Products</a>
+    </div>
+    <ul class="nav navbar-nav">
+      
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li>@Html.ActionLink("Products List","GetAllProducts","Products")</li>
+          <li>@Html.ActionLink("Add product","Create","Products")</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Categories list</a></li>
+          <li><a href="#">Add category</a></li>
+        </ul>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+@RenderBody()
