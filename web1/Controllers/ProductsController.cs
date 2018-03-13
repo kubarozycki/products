@@ -12,6 +12,7 @@ public class ProductsController:Controller
     [HttpGet]
     public ViewResult GetAllProducts(string sortBy)
     { 
+        
         List<Product> products=new List<Product>();
         SqlConnection connection=new SqlConnection();
         connection.ConnectionString="Server=WIN-I8619RLSHP\\SQLEXPRESS;Database=TSQL2012;Trusted_Connection=True;";
@@ -41,6 +42,21 @@ public class ProductsController:Controller
         ViewData["products"]=productNames;
         return View();   
     }
+
+    [HttpGet]
+    public ViewResult AddProductForm()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public void AddProduct([FromForm] Product p)
+    {
+        // todo add to database
+    }
+
+    
+
 
     
    

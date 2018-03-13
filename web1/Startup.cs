@@ -24,7 +24,6 @@ namespace web1
             app.UseDeveloperExceptionPage();
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
-            
         }
     }
 }

@@ -12531,7 +12531,8 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.AspNetCore.All >= 2.0.5",
-      "Microsoft.NETCore.App >= 2.0.0"
+      "Microsoft.NETCore.App >= 2.0.0",
+      "System.ValueTuple >= 4.4.0"
     ]
   },
   "packageFolders": {
@@ -12586,6 +12587,10 @@
             "target": "Package",
             "version": "[2.0.0, )",
             "autoReferenced": true
+          },
+          "System.ValueTuple": {
+            "target": "Package",
+            "version": "[4.4.0, )"
           }
         },
         "imports": [

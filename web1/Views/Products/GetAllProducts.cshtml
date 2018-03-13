@@ -1,4 +1,5 @@
 @{
+    
     List<Product> listaTemp=(List<Product>)ViewData["products"];
     string baseUrl="http://localhost:5000/Products/GetAllProducts?sortBy=";
 }
@@ -27,4 +28,12 @@
         </tr>
     }
 </table>
+
+<form action="/Products/AddProduct" method="POST">
+  <input type="text" name="ProductName">
+  <input type="text" name="ProductID"> 
+  <!-- todo replace with dropdown -->
+  
+  <input type="submit" value="Submit">
+</form>
 
