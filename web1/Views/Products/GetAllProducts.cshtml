@@ -3,9 +3,9 @@
     List<Product> listaTemp=(List<Product>)ViewData["products"];
     string baseUrl="http://localhost:5000/Products/GetAllProducts?sortBy=";
 }
-<table>
+<table class="table">
     <thead>
-        <th><a href=@baseUrl"ProductName">ProductName</a></th>
+        <th><a href=@baseUrl"ProductName" class="btn">ProductName</a></th>
         <th><a href=@baseUrl"SupplierID">Supplier ID</a></th>
         <th>category id</th>
         <th>unit price</th>
