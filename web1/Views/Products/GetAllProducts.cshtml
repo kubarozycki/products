@@ -1,8 +1,25 @@
+@using web1
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
 @{
     
     List<Product> listaTemp=(List<Product>)ViewData["products"];
-    string baseUrl="http://localhost:5000/Products/GetAllProducts?sortBy=";
+    string baseUrl="http://localhost:5000/Products/GetAllProducts";
+    string sortBy="SupplierID";
+    int currentPage=int.Parse(ViewData["currentpage"].ToString());
+    int nextPage=currentPage+1;
+    // string nextPage=@baseUrl+" "+(@currentPage+1).ToString();
+    // string previous="previous page url";
 }
+
+   
+        <a asp-controller="Products" asp-action="GetAllProducts" asp-route-sortBy=@sortBy asp-route-page=@int.Parse(nextPage).ToString();>
+        Previos page</a>
+
+
+    
 <table class="table">
     <thead>
         <th><a href=@baseUrl"ProductName" class="btn">ProductName</a></th>
@@ -28,12 +45,4 @@
         </tr>
     }
 </table>
-
-<form action="/Products/AddProduct" method="POST">
-  <input type="text" name="ProductName">
-  <input type="text" name="ProductID"> 
-  <!-- todo replace with dropdown -->
-  
-  <input type="submit" value="Submit">
-</form>
 

@@ -1,8 +1,16 @@
+@using web1.Models
+@model web1.Models.Product
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
 @{
-    // Layout="_Layout2";
+        List<SelectListItem> categories=new List<SelectListItem>();
+        categories.Add(new SelectListItem{Value="4",Text="nazwa kategori"});
+        categories.Add(new SelectListItem{Value="1",Text="nazwa kategori 2"});
 }
-<form action="/Products/AddProduct" method="POST">
-    <input type="text" name="ProductName">
-    <input type="range" name="SupplierIDs">
+
+<form asp-controller="Products" asp-action="AddProduct">
+    <input type="text" asp-for="ProductName">
+    <select asp-for="CategoryID" asp-items="categories"></select>
     <input type="submit" value="Send form">
 </form>
