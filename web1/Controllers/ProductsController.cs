@@ -26,9 +26,17 @@ public class ProductsController:Controller
     }
 
     [HttpPost]
-    public void AddProduct([FromForm] Product p)
+    public ActionResult AddProduct([FromForm] Product p)
     {
         // todo add to database
+        if(p.ProductName.Length>50&&p.CategoryID>0&&p.SupplierID>0&&p.UnitPrice>0){
+            ProductsRepository r=new ProductsRepository();
+            r.AddProduct(p);
+            return Ok("productadded succesfully");
+        }
+        else{
+            return BadRequest("invalid request data");
+        }
     }
 
     

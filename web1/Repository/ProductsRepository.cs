@@ -39,5 +39,9 @@ namespace web1.Repository
             return productNames;
         }
 
+        public void AddProduct(Product p){
+            //todo write query to add to database
+        }
+
     }
 }
